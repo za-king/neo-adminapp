@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
-
+import Swal from 'sweetalert2';
 function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -16,8 +16,18 @@ function Login() {
   const handleLogin = () => {
     axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, data).then((response) => {
       if (response.data.error) {
-        console.log(response.data.error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.data.error,
+        })
       } else {
+        Swal.fire({
+          icon: 'success',
+          title: 'Berhasil Login',
+          showConfirmButton: false,
+          timer: 1500
+        },)
         cookies.set("token", response.data.accesToken, { path: "/" });
         console.log(response.data);
         return navigate("/");

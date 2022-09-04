@@ -11,7 +11,7 @@ import Header from "../components/Header";
 function Admin() {
   const [data, setData] = useState([]);
   const [lock, setLock] = useState([]);
-  const [refresh, setRefresh] = useState(null);
+  const [refresh, setRefresh] = useState();
   const cookies = new Cookies();
 
 
@@ -79,7 +79,7 @@ function Admin() {
 
   const handleUpdateDisable = (v) => {
     axios
-      .put(`${process.env.REACT_APP_BASE_URL}/lockregis/1`, {
+      .put(`${process.env.REACT_APP_BASE_URL}/lockregis/4`, {
         disable: v,
       })
       .then((res) => {

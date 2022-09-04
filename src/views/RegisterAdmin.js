@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-
+import Swal from "sweetalert2";
 function RegisterAdmin() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -20,9 +20,25 @@ function RegisterAdmin() {
   }, []);
 
   const handleRegister = () => {
-    axios.post(`${process.env.REACT_APP_BASE_URL}/auth`, data).then((res) => {
+    if(username === "" && password === ""){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'anda tidak mengisi username dan password!',
+      })
+    }else{
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil Melakukan Registrasi',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      axios.post(`${process.env.REACT_APP_BASE_URL}/auth`, data).then((res) => {
       console.log(res);
     });
+    }
+
+    
   };
 
   return (
@@ -69,9 +85,10 @@ function RegisterAdmin() {
                     </FormGroup>
 
                     <Button onClick={handleRegister}>REGISTER</Button>
+                    <p className="pt-5 ">kembali ke halaman <a href="/login">Login</a> </p>
                   </Form>
                 </div>
-              );
+              ); 
             }
           })}
           <div className="col"></div>

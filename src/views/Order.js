@@ -33,21 +33,13 @@ function Order() {
     });
 
   useEffect(() => {
-    axios.get("http://localhost:3004/orders").then((res) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/orders`).then((res) => {
       setData(res.data);
     });
   }, [refresh]);
 
   const { SearchBar } = Search;
   const columns = [
-    {
-      dataField: "id",
-      text: "no",
-      sort: true,
-      headerStyle: () => {
-        return { width: "5%" };
-      },
-    },
     {
       dataField: "User.username",
       text: "Name",

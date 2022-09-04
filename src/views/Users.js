@@ -37,7 +37,7 @@ function Users() {
   //   });
 
   useEffect(() => {
-    axios.get("http://localhost:3004/users/auth").then((res) => {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/users/auth`).then((res) => {
       setData(res.data);
     });
   }, [refresh]);

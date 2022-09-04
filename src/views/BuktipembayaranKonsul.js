@@ -43,13 +43,6 @@ function BuktiPembayaranKonsul() {
   const { SearchBar } = Search;
   const columns = [
     {
-      dataField: "id",
-      text: "ID",
-      headerStyle: () => {
-        return { width: "5%" };
-      },
-    },
-    {
       dataField: "kode_order",
       text: "kode order",
     },

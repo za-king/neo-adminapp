@@ -43,13 +43,6 @@ function BuktiPembayaranEvent() {
   const { SearchBar } = Search;
   const columns = [
     {
-      dataField: "id",
-      text: "ID",
-      headerStyle: () => {
-        return { width: "5%" };
-      },
-    },
-    {
       dataField: "kode_order",
       text: "kode order",
     },
@@ -86,7 +79,7 @@ function BuktiPembayaranEvent() {
   ];
   
   const handleDelete = (id) =>{
-      axios.delete(`${process.env.REACT_APP_BASE_URL}/${id}`).then(() =>{
+      axios.delete(`${process.env.REACT_APP_BASE_URL}/buktievent/${id}`).then(() =>{
         console.log("delete")
       })    
       setRefresh(id)

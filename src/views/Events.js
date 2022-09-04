@@ -16,7 +16,7 @@ import Header from "../components/Header";
 
 function Events() {
   const [data, setData] = useState([]);
-  const [refresh , setRefresh] = useState(null)
+  const [refresh , setRefresh] = useState()
 
   const alert = (id) => Swal.fire({
     title: 'Apakah anda yakin?',
@@ -39,13 +39,6 @@ function Events() {
     });
   }, [refresh]);
   const columns = [
-    {
-      dataField: "id",
-      text: " ID",
-      headerStyle: () => {
-        return { width: "5%" };
-      },
-    },
     {
       dataField: "event_name",
       text: "Nama Event",
@@ -178,7 +171,7 @@ function Events() {
             <Button>Tambah Event</Button>
           </Link>
         </CardBody>
-        <BootstrapTable keyField="id" data={data} columns={columns} pagination={ paginationFactory() }/>
+        <BootstrapTable keyField="id" data={data} columns={columns} pagination={ paginationFactory() } />
       </Container>
     </div>
     </>

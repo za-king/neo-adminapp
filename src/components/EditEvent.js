@@ -184,7 +184,7 @@ function EditEvent() {
           <Col md={4}>
             <FormGroup>
               <Label for="exampleImage">Cover Image</Label>
-              <div><img src={image} alt="edit" width={100} /></div>
+              {/* <div><img src={image} alt="edit" width={100} /></div> */}
 
               <Input
                 id="exampleNamaImage"
