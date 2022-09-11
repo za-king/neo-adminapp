@@ -47,7 +47,7 @@ function EditEvent() {
   useEffect(() => {
 
     async function fetchData() {
-      const res = await  axios.get(`http://localhost:3004/events/byId/${id}`)
+      const res = await  axios.get(`${process.env.REACT_APP_BASE_URL}/events/byId/${id}`)
       setNamaEvent(res.data.event_name);
       setImage(res.data.url);
       setTanggal(res.data.date);

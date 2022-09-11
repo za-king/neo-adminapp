@@ -79,7 +79,7 @@ function Admin() {
 
   const handleUpdateDisable = (v) => {
     axios
-      .put(`${process.env.REACT_APP_BASE_URL}/lockregis/4`, {
+      .put(`${process.env.REACT_APP_BASE_URL}/lockregis/1`, {
         disable: v,
       })
       .then((res) => {
